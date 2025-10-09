@@ -21,7 +21,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'ecoapp/static'), 
+    os.path.join(BASE_DIR, 'ecoapp/static/ecoapp'), 
 ]
 
 # Quick-start development settings - unsuitable for production
