@@ -60,11 +60,6 @@ def tourist_survey(request):
 def survey_thank_you(request):
     return render(request, 'ecoapp/survey_thank_you.html')
 
-def clean_people_in_room(self):
-    people_in_room = self.cleaned_data.get('people_in_room')
-    if people_in_room <= 0:
-        raise ValidationError("Количество человек должно быть больше нуля.")
-    return people_in_room
 
 def local_survey(request):
     user = request.user
@@ -83,11 +78,11 @@ def local_survey(request):
             survey.save()
             return redirect('survey_thank_you')
         else:
-            return render(request, 'ecoapp/survey_local.html', {'form': form})
+            return render(request, 'survey_local.html', {'form': form})
     else:
         form = SurveyLocalForm()
 
-    return render(request, 'ecoapp/survey_local.html', {'form': form})
+    return render(request, 'survey_local.html', {'form': form})
 
 def survey_choice(request):
     if request.method == 'POST':
