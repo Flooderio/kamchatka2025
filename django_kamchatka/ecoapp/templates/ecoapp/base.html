@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>kamchatkaCO2</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'secrets.css' %}">
+    <link rel="stylesheet" href="{% static 'surveys.css' %}">
+    <link rel="stylesheet" href="{% static 'team.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap&subset=cyrillic" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+    <div class="header-top">
+        <div class="logo">
+            <img src="{% static 'ecoapp/images/logo.png' %}" alt="logo">
+        </div>
+        <div class="auth">
+        <a href="/" class="btn-login">войти</a>
+        </div>
+    </div>
+
+    <nav class="header-bottom">
+      <a href="/#home">главная</a>
+      <a href="/#about">о проекте</a>
+      <a href="/#secrets">секреты Камчатки</a>
+      <a href="/surveys/">калькулятор С02</a>
+      <!-- <a href="/#gallery">учимся беречь</a> -->
+    </nav>
+    </header>
+
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h3>Каманда</h3>
+      <p>
+        Мы — команда энтузиастов, стремящихся повысить экологическую
+        осознанность и сократить углеродный след. Проект создан во время
+        экспедиции на Камчатку.
+      </p>
+    </div>
+
+    <div class="footer-section contacts">
+      <h4>Контакты</h4>
+      <ul>
+        <li>project@mail.ru</li>
+        <li>
+          <a
+            href="https://t.me/kamchatka2025_co2_count_bot"
+            target="_blank"
+            >Наш Telegram-бот</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Каманда. Все права защищены.</p>
+  </div>
+</footer>
+
+<script src="{% static 'ecoapp/js/active-link.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+{% extends "ecoapp/base.html" %}
+{% block content %}
+  <div class="survey-form">
+  <h2 class="survey-header-tourist">Опрос для местного жителя</h2>
+  <form method="POST" id="local-survey-form">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <label for="id_age">Ваш возраст:</label>
+        <input type="number" name="age" id="id_age" min="0" max="150" step="1" value="{{ form.age.value }}">
+    </div>
+
+    <div class="form-group">
+      <label for="id_housing_type">Укажите тип вашего жилья:</label>
+      {{ form.housing_type }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_people_in_home">Сколько человек проживает в вашем доме, включая вас?</label>
+      <input type="number" name="amount" id="id_age" min="0" step="1" value="{{ form.amount.people_in_home }}">
+    </div>
+
+    <div class="form-group">
+      <label for="id_housing_area">Площадь вашего жилья (м²):</label>
+      <input type="number" name="area" id="id_housing_area" min="0" step="1" value="{{ form.area.housing_area }}">
+    </div>
+
+    <div class="form-group">
+      <label for="id_heating_source">Источник отопления в вашем жилье:</label>
+      {{ form.heating_source }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_personal_transport">Каким личным транспортом вы обладаете:</label>
+      {{ form.personal_transport }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_fuel_type">Тип топлива у вашего транспорта:</label>
+      {{ form.fuel_type }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_average_mileage_per_month">Средний пробег в месяц (км):</label>
+      <input type="number" name="average_mileage_per_month" id="id_average_mileage_per_month" min="0" step="1" value="{{ form.average_mileage_per_month.average_mileage_per_month }}">
+    </div>
+
+    <div class="form-group">
+      <label for="id_public_transport_usage">Как часто вы пользуетесь общественным транспортом?</label>
+      {{ form.public_transport_usage }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_flights_in_last_year">Каким типом перелетов вы пользовались чаще за последний год?</label>
+      {{ form.flights_in_last_year }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_flight_type">Каким классом обслуживание вы пользовались?</label>
+      {{ form.flight_type }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_waste_management">Какое обращение с отходами вы придерживаетесь?</label>
+      {{ form.waste_management }}
+    </div>
+
+    <button type="submit" class="btn-submit-tourist">Отправить</button>
+  </form>
+</div>
+{% endblock %}

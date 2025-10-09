@@ -1,0 +1,46 @@
+{% load static %}
+
+{% block content %}
+<!-- Секция "О проекте" -->
+<section id="about">
+    <div class="container">
+        <h1 class="about-project__title">О проекте</h1>
+        <p class="about-project__description">
+            С каждым годом нагрузка на природу Камчатки становится все выше: в 2025 году турпоток увеличился на 22%, потребление местных жителей растет. Каждое действие несет за собой след, который оставляет неизгладимое влияние на хрупкую экосистему полуострова.
+        </p>
+        <p class="about-project__description">
+            Мало кто задумывается об этом, поэтому наша платформа для повышения осознанности местных жителей и туристов по углеродному следу призвана увеличить знание, а также сделать экологичный образ жизни доступнее.
+        </p>
+
+        <!-- Карточки с кнопками -->
+        <div class="cards">
+            <div class="card">
+                <img src="{% static 'ecoapp/images/2.png' %}" alt="Cекреты Камчатки" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Секреты Камчатки</h3>
+                    <p class="card__text">Узнайте удивительные факты о природе полуострова</p>
+                    <a href="#secrets" class="card__button">Узнать больше</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'ecoapp/images/4.png' %}" alt="Калькулятор углеродного следа" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Калькулятор углеродного следа</h3>
+                    <p class="card__text">Посчитайте свой личный углеродный след</p>
+                    <a href="/surveys/" class="card__button">Посчитать</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'ecoapp/images/3.png' %}" alt="Образовательные карточки" class="card__image">
+                <div class="card__content">
+                    <h3 class="card__title">Образовательные карточки</h3>
+                    <p class="card__text">Изучайте экологичные привычки в игровой форме</p>
+                    <a href="#eco-habits" class="card__button">Изучить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

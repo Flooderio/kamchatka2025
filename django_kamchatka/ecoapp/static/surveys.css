@@ -1,0 +1,156 @@
+/* ==================== ОПРОС ==================== */
+
+.survey-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 10px;
+    text-align: center;
+}
+
+/* Заголовок страницы */
+.survey-header img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Контейнер для контента */
+.survey-content {
+    margin-top: 20px;
+    background-color: #F4F4F4;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок опроса */
+.survey-content h2 {
+    font-family: 'Noto Sans';
+    font-size: 24px;
+    font-weight: 900;
+    color: #2A3F50;
+    margin-bottom: 20px;
+}
+
+/* Стиль для формы */
+.survey-form {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.survey-form p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.survey-form select, .survey-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+    margin-top: 20px; 
+}
+
+.btn-submit {
+    font-family: 'Noto Sans';
+    background-color: #F84628;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    width: 48%;  
+}
+
+.btn-submit-tourist{
+    font-family: 'Noto Sans';
+    background-color: #F84628;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 20%;  
+    display: block;
+}
+
+.survey-header-tourist{
+    font-family: 'Noto Sans';
+    padding: 15px 0;
+    display: block;
+    margin: 10px auto;
+}
+
+.form-group{
+    font-family: 'Noto Sans';
+    margin: 10px auto;
+
+}
+
+/* Убираем выравнивание текста по центру в форме */
+.survey-form .form-group {
+    text-align: left; /* Оставляем текст по левому краю */
+}
+
+.btn-submit:hover {
+    background-color: #D93A21;
+}
+
+
+@media (max-width: 768px) {
+    .survey-container {
+        padding: 0 10px;
+    }
+
+    .survey-header img {
+        width: 100%;
+    }
+
+    .survey-content {
+        padding: 20px;
+    }
+
+    .survey-form {
+        padding: 10px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .btn-group {
+        flex-direction: column; 
+        gap: 10px;
+    }
+}
+
+
+.tour {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.transport-options label {
+  margin-right: 10px;
+  font-weight: normal;
+}

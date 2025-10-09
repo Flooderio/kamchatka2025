@@ -1,0 +1,26 @@
+{% extends "ecoapp/base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="survey-container">
+    <!-- Картинка сверху -->
+    <div class="survey-header">
+        <img src="{% static 'ecoapp/images/logofull.png' %}" alt="Опрос для туристов" class="survey-image">
+    </div>
+    
+    <!-- Описание и форма опроса -->
+    <div class="survey-content">
+        <h2>Ты местный житель Камчатки или турист?</h2>
+        <form method="post" class="survey-form"  action="{% url 'survey_choice' %}">
+            {% csrf_token %}
+            
+            <!-- Кнопки для выбора с использованием Flexbox -->
+            <div class="btn-group">
+                <button type="submit" name="local" value="yes" class="btn-submit left">Я местный житель</button>
+                <button type="submit" name="tourist" value="yes" class="btn-submit right">Я турист</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

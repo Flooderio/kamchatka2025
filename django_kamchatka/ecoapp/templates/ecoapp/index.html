@@ -1,0 +1,24 @@
+{% extends "ecoapp/base.html" %}
+{% block content %}
+
+    <!-- Главная секция -->
+    <section id="home" class="hero">
+        {% include 'ecoapp/main.html' %}
+    </section>
+
+    <!-- Секция "О проекте" -->
+    <section id="about" class="about-project">
+        {% include 'ecoapp/about.html' %}
+    </section>
+
+    <!-- Секция "Секреты Камчатки" -->
+    <section id="secrets">
+        {% include 'ecoapp/secrets.html' %}
+    </section>
+
+    <!-- Секция "О нашей команде" -->
+    <section id="gallery">
+        {% include 'ecoapp/team.html' %}
+    </section>
+
+{% endblock %}

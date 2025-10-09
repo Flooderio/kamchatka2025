@@ -1,0 +1,50 @@
+/* Раздел "Про команду" */
+.team-section {
+    margin-top: 40px;
+    text-align: center;
+    background-color: #F4F4F4;
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.team-title {
+    font-family: 'Noto Sans';
+    font-size: 28px;
+    font-weight: 700;
+    color: #2A3F50;
+    margin-bottom: 20px;
+}
+
+.team-description {
+    font-family: 'Noto Sans';
+    font-size: 20px;
+    line-height: 1.5;
+    color: #2A3F50;
+    margin-bottom: 15px;
+}
+
+.team-photo {
+    margin-top: 20px;
+}
+
+.team-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* from ecoapp.models import Tour, TransportType
+
+# Создаем типы транспорта
+vahovka = TransportType.objects.create(type_name="вахтовка")
+vnedorozhnik = TransportType.objects.create(type_name="внедорожник")
+mikroavtobus = TransportType.objects.create(type_name="микроавтобус")
+
+# Создаем туры и связываем их с транспортом
+Tour.objects.create(name="Вулкан Горелый", transport_choices=[vahovka, vnedorozhnik, mikroavtobus])
+tour1 = Tour.objects.create(name="Вулкан Мутновский")
+ */

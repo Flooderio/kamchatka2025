@@ -1,0 +1,507 @@
+/* ==================== ОБЩИЕ СТИЛИ ==================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Стиль для активной ссылки */
+.header-bottom a.active {
+    color: #F84628;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url("{% static 'ecoapp/fonts/Noto_Sans/static/NotoSans-Light.ttf' %}") format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif; 
+    font-weight: 300; 
+    background-color: #B6D7DE;
+    color: #2A3F50;
+    line-height: 1.6;
+}
+
+
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+
+/* ==================== ФИКСИРОВАННЫЙ ХЕДЕР ==================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2A3F50;
+    color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* ======= Первый уровень: логотип + кнопка входа ======= */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.header-top .logo img{
+    height: 56px; 
+    width: auto;
+}
+
+
+.header-top .auth .btn-login {
+    font-family: 'Noto Sans';
+    font-weight: 700;
+    background-color: #F84628;
+    color: white;
+    text-decoration: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+
+.header-top .auth .btn-login:hover {
+    background-color: #ff7f5c;
+}
+
+
+/* ======= Второй уровень: навигация ======= */
+.header-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 0;
+    background-color: #2A3F50;
+}
+
+.header-bottom a {
+    font-family: 'Noto Sans';
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.header-bottom a:hover {
+    color: #F84628;
+}
+
+/* ======= Отступ под хедер ======= */
+main {
+    margin-top: 120px;
+}
+
+/* ==================== КОНТЕНТ ==================== */
+
+/* Стиль для блока main (приветственный блок без фона и квадратика) */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #333;  /* Тёмный цвет для заголовка */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.hero .quote {
+    font-size: 1.5rem;
+    color: #555;  /* Темно-серый цвет для цитаты */
+    font-style: italic;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+.main-header img{
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+}
+
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-weight: 700;
+    color: #F84628;
+    font-size: 36px;
+}
+
+.hero p {
+    font-weight: 300;
+    font-size: 20px;
+    color: #2A3F50;
+}
+
+.photo-placeholder {
+    background-image: url("/static/ecoapp/images/photo.jpeg");
+    background-size: cover;
+    background-position: center;
+    margin: 40px auto;
+    width: 80%;
+    height: 300px;
+    border: 3px solid #2A3F50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+}
+
+
+
+/* ==================== ФУТЕР ==================== */
+footer {
+    background-color: #2A3F50;
+    color: white;
+    width: 100%;
+    padding: 60px 0 20px;
+    font-size: 15px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 60px;
+    justify-items: center;
+}
+
+.footer-section {
+    width: 100%;
+    max-width: 400px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    font-weight: 700;
+    color: #F84628;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.footer-section p,
+.footer-section li {
+    font-weight: 300;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    color: #F84628;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ff7f5c;
+}
+
+.footer-bottom {
+    border-top: 1px solid #F84628;
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 800px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-bottom {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    main {
+        margin-top: 150px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 30px;
+    }
+
+    .footer-section {
+        max-width: none;
+    }
+}
+
+@media (max-width: 500px) {
+    .header-top .logo {
+        font-size: 22px;
+    }
+
+    .header-top .auth .btn-login {
+        padding: 5px 12px;
+        font-size: 14px;
+    }
+
+    .header-bottom a {
+        font-size: 14px;
+    }
+}
+
+
+/* ==================== КОНТЕНТ ==================== */
+
+/* ==================== ОФОРМЛЕНИЕ СЕКЦИИ О ПРОЕКТЕ ==================== */
+.about-project {
+    padding: 50px 20px;
+    background-color: #F4F4F4;
+    color: #2A3F50;
+    text-align: center;
+}
+
+.about-project__title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #F84628;
+    margin-bottom: 20px;
+}
+
+.about-project__description {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==================== СТИЛИ ДЛЯ КАРТОЧЕК ==================== */
+.cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card__content {
+    padding: 20px;
+}
+
+.card__title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2A3F50;
+    margin-bottom: 10px;
+}
+
+.card__text {
+    font-size: 16px;
+    color: #2A3F50;
+    margin-bottom: 20px;
+}
+
+.card__button {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    background-color: #F84628;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.card__button:hover {
+    background-color: #D93A21;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ==================== ФУТЕР ==================== */
+footer {
+    background-color: #2A3F50;
+    color: white;
+    width: 100%;
+    padding: 60px 0 20px;
+    font-size: 15px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 60px;
+    justify-items: center;
+}
+
+
+.footer-section {
+    width: 100%;
+    max-width: 400px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #F84628;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.footer-section p,
+.footer-section li {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section a {
+    color: #F84628;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #ff7f5c;
+}
+
+.footer-bottom {
+    border-top: 1px solid #F84628;
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 15px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+/* ==================== АДАПТИВНОСТЬ ==================== */
+
+@media (max-width: 1000px) {
+    header nav a {
+        font-size: 14px;
+        margin: 0 8px;
+    }
+
+    main {
+        margin-top: 120px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #2A3F50;
+        padding: 10px 0;
+        text-align: center;
+        border-top: 1px solid #F84628;
+    }
+
+    header nav a {
+        display: block;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    header.active nav {
+        display: flex;
+    }
+
+    header.active .menu-toggle div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    header.active .menu-toggle div:nth-child(2) {
+        opacity: 0;
+    }
+    header.active .menu-toggle div:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    main {
+        margin-top: 140px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 30px;
+    }
+
+    .footer-section {
+        max-width: none;
+    }
+}
