@@ -78,11 +78,11 @@ def local_survey(request):
             survey.save()
             return redirect('survey_thank_you')
         else:
-            return render(request, 'survey_local.html', {'form': form})
+            return render(request, 'ecoapp/survey_local.html', {'form': form})
     else:
         form = SurveyLocalForm()
 
-    return render(request, 'survey_local.html', {'form': form})
+    return render(request, 'ecoapp/survey_local.html', {'form': form})
 
 def survey_choice(request):
     if request.method == 'POST':
