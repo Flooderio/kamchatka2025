@@ -5,114 +5,47 @@
 {% block content %}
 <div class="survey-form">
   <h2 class="survey-header-tourist">Опрос для туриста</h2>
-
   <form method="POST" id="tourist-survey-form">
     {% csrf_token %}
+    {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+        {{ field }}
+        {% if field.help_text %}
+          <small>{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <div class="form-error" style="color: #c62828;">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endfor %}
 
     <div class="form-group">
-      <label for="id_age">Ваш возраст:</label>
-      <input type="number" name="age" id="id_age" min="0" max="150" step="1" value="{{ form.age.value }}">
-    </div>
-
-    <div class="form-group">
-      <label for="id_departure_city">Город вашего отправления:</label>
-      {{ form.departure_city }}
-    </div>
-
-    <div class="form-group form-left-align">
-      <label>Была ли пересадка в Москве:</label>
-      <input type="radio" name="is_transfer_in_moscow" value="yes" id="id_is_transfer_in_moscow_yes">
-      <label for="id_is_transfer_in_moscow_yes">Да</label>
-      <input type="radio" name="is_transfer_in_moscow" value="no" id="id_is_transfer_in_moscow_no">
-      <label for="id_is_transfer_in_moscow_no">Нет</label>
-    </div>
-
-    <div class="form-group">
-      <label for="id_flight_class">Класс обслуживания в самолете:</label>
-      {{ form.flight_class }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_days_in_location">Количество суток пребывания (без учёта перелётов):</label>
-      {{ form.days_in_location }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_accommodation_type">Тип размещения:</label>
-      {{ form.accommodation_type }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_people_in_room">Сколько человек проживает/проживало в вашем месте размещения:</label>
-      {{ form.people_in_room }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_meal_type">Тип питания:</label>
-      {{ form.meal_type }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_meals_per_day">Полноценных приёмов пищи в день:</label>
-      {{ form.meals_per_day }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_waste_management">Обращение с отходами:</label>
-      {{ form.waste_management }}
-    </div>
-
-    <!-- ВОПРОС ПРО ЭКСКУРСИИ -->
-    <div class="form-group">
-      <label>Какие экскурсии вы посещали (и какой транспорт использовали):</label>
+      <label>Доступные экскурсии и транспорт:</label>
       <div id="tours-list">
         {% for tour in tours %}
           <div class="tour">
-            <!-- чекбокс экскурсии -->
-            <input type="checkbox"
-                   name="tours"
-                   value="{{ tour.id }}"
-                   id="tour_{{ tour.id }}">
-            <label for="tour_{{ tour.id }}"><strong>{{ tour.name }}</strong></label>
-
-            <!-- радиокнопки транспорта -->
-            <span class="transport-options" style="margin-left: 10px;">
-              {% if tour.transport_choices.all %}
-                {% for transport in tour.transport_choices.all %}
-                  <input type="radio"
-                         name="transport_for_{{ tour.id }}"
-                         value="{{ transport.id }}"
-                         id="transport_{{ tour.id }}_{{ transport.id }}">
-                  <label for="transport_{{ tour.id }}_{{ transport.id }}" style="margin-right: 10px;">
-                    {{ transport.type_name }}
-                  </label>
-                {% endfor %}
-              {% else %}
-                <em style="color: #888;">(нет вариантов транспорта)</em>
-              {% endif %}
-            </span>
+            <strong>{{ tour.name }}</strong>
+            {% if tour.description %}
+              <div>{{ tour.description }}</div>
+            {% endif %}
+            <div class="transport-options" style="margin-top: 4px;">
+              {% for transport in tour.transport_choices.all %}
+                <span style="margin-right: 10px;">{{ transport.type_name }}</span>
+              {% empty %}
+                <em style="color: #888;">Нет предустановленного транспорта</em>
+              {% endfor %}
+            </div>
           </div>
         {% endfor %}
       </div>
     </div>
-    <!-- /ВОПРОС ПРО ЭКСКУРСИИ -->
 
-    <div class="form-group">
-      <label for="id_boat_trip_duration">Морская прогулка:</label>
-      {{ form.boat_trip_duration }}
-    </div>
+    {% for error in form.non_field_errors %}
+      <div class="form-error" style="color: #c62828;">{{ error }}</div>
+    {% endfor %}
 
-    <div class="form-group">
-      <label for="id_helicopter_ride_duration">Экскурсия на вертолёте — продолжительность полёта (мин):</label>
-      {{ form.helicopter_ride_duration }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_helicopter_ride_passengers">Экскурсия на вертолёте — количество человек на борту:</label>
-      {{ form.helicopter_ride_passengers }}
-    </div>
-
-    <button type="submit" class="btn-submit-tourist">Отправить</button>
+    <button type="submit" class="btn-submit-tourist">Рассчитать</button>
   </form>
 </div>
 {% endblock %}

@@ -1,6 +1,32 @@
-{% csrf_token %}
 {% extends "ecoapp/base.html" %}
 
 {% block content %}
-  <h2>Спасибо за участие в опросе!</h2>
+<div class="survey-form">
+  <h2>Спасибо за участие в опросе</h2>
+  {% if result %}
+    <p><strong>Итоговый углеродный след:</strong> {{ result.total_emission|floatformat:2 }} кг CO2e</p>
+    {% if result.route %}
+      <p><strong>Маршрут:</strong> {{ result.route.name }}</p>
+    {% endif %}
+    <h3>Детализация</h3>
+    <ul>
+      {% for key, value in result.breakdown.items %}
+        <li>{{ key }}: {{ value|floatformat:2 }} кг CO2e</li>
+      {% endfor %}
+    </ul>
+
+    <h3>Рекомендации</h3>
+    <pre style="white-space: pre-wrap;">{{ result.recommendation_text }}</pre>
+
+    {% if result.checklist %}
+      <h3>Чек-лист</h3>
+      <p>{{ result.checklist.content }}</p>
+      {% if result.checklist.url %}
+        <p><a href="{{ result.checklist.url }}" target="_blank" rel="noopener noreferrer">Открыть чек-лист</a></p>
+      {% endif %}
+    {% endif %}
+  {% else %}
+    <p>Результат пока не найден. Пройдите опрос повторно.</p>
+  {% endif %}
+</div>
 {% endblock %}
