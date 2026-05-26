@@ -1,15 +1,4 @@
-let currentIndex = 1; // Индекс текущей картинки
-
-// Список картинок и их описаний
-const images = [
-    "/static/ecoapp/images/secret1.png",
-    "/static/ecoapp/images/secret2.png",
-    "/static/ecoapp/images/secret3.png",
-    "/static/ecoapp/images/secret4.png",
-    "/static/ecoapp/images/secret5.png",
-    "/static/ecoapp/images/secret6.png",
-    "/static/ecoapp/images/secret7.png"
-];
+let currentIndex = 1; // Индекс текущей карточки
 
 const descriptions = [
     "Из-за географического расположения на Камчатке выпадает много осадков.",
@@ -32,10 +21,10 @@ function changeImage(n) {
 }
 
 function showImage(index) {
-    const img = document.querySelector('.secrets-slider img');
+    const card = document.querySelector('.secret-card span');
     const description = document.querySelector('.secret-description');
-    
-    img.src = images[index - 1];
+
+    card.textContent = `Факт ${index}`;
     description.textContent = descriptions[index - 1];  // Обновляем описание
 
     // Обновить активную точку

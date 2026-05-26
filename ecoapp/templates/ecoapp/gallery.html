@@ -1,0 +1,28 @@
+{% extends "ecoapp/base.html" %}
+
+{% block content %}
+<section class="routes-gallery">
+  <h1>Маршруты Камчатки</h1>
+  <p class="routes-gallery__lead">
+    В справочнике проекта заведены 13 туристических маршрутов с длительностью и доступными типами транспорта.
+  </p>
+
+  <div class="route-grid">
+    {% for route in routes %}
+      <article class="route-card">
+        <h2>{{ route.name }}</h2>
+        <p>{{ route.description }}</p>
+        <p><strong>Длительность:</strong> {{ route.default_duration_days }} дн.</p>
+        <p>
+          <strong>Транспорт:</strong>
+          {% for transport in route.transport_modes.all %}
+            {{ transport.type_name }}{% if not forloop.last %}, {% endif %}
+          {% empty %}
+            не указан
+          {% endfor %}
+        </p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -28,6 +28,22 @@
     margin-top: 20px;
 }
 
+.team-placeholder {
+    max-width: 520px;
+    min-height: 220px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #2A3F50, #F84628);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .team-image {
     width: 100%;
     max-width: 500px;

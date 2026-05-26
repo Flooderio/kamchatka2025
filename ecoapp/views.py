@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import SurveyLocalForm, SurveyTouristForm
-from .models import CalculationResult, Tour
+from .models import CalculationResult, Route, Tour
 from .services.calculation import calculate_survey
 from .services.persistence import get_or_create_survey_user, persist_calculation_result
 from .services.recommendations import get_recommendations_for_outcome
@@ -28,7 +28,8 @@ def surveys(request):
 
 
 def gallery(request):
-    return render(request, "ecoapp/gallery.html")
+    routes = Route.objects.filter(is_active=True).prefetch_related("transport_modes")
+    return render(request, "ecoapp/gallery.html", {"routes": routes})
 
 
 def tourist_survey(request):
